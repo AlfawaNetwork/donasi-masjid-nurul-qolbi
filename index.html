@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Investasi Akhirat - Masjid Nurul Qolbi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <header class="relative bg-slate-900 text-white py-20 px-4 shadow-md text-center overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('1001870701.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-emerald-950/50 to-slate-900/80 z-0"></div>
+
+        <div class="max-w-5xl mx-auto relative z-10 space-y-4">
+            <span class="bg-emerald-500/80 text-emerald-100 text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-emerald-400/50 backdrop-blur-sm shadow-md">Amal Jariyah</span>
+            
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white drop-shadow-xl mt-2">
+                Program Investasi Akhirat
+            </h1>
+            
+            <div class="h-1.5 w-24 bg-emerald-500 mx-auto rounded-full my-5 shadow-lg"></div>
+            
+            <h2 class="text-xl md:text-3xl font-bold text-emerald-300 drop-shadow-lg">
+                MASJID NURUL QOLBI
+            </h2>
+            <p class="text-white text-sm md:text-base font-medium tracking-wide drop-shadow-md">
+                Lokasi: Jln. Poros Lapter-RVE | Pengasuh: Ustadz Mbah Gimun
+            </p>
+            
+            <div class="mt-6 flex justify-center items-center gap-2 text-xs bg-black/60 w-fit mx-auto px-4 py-2 rounded-full backdrop-blur-md border border-white/20 shadow-lg">
+                <i class="fa-regular fa-clock text-emerald-400"></i>
+                <span>Update Terakhir: <strong id="txt-tanggal">28 Mei 2026</strong></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-10 space-y-8">
+
+        <section class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-chart-line text-emerald-600"></i> Status Penggalangan Dana
+            </h2>
+            
+            <div class="space-y-3">
+                <div class="flex justify-between items-end">
+                    <div>
+                        <span class="text-3xl font-black text-emerald-600" id="txt-terkumpul-lembar">0</span>
+                        <span class="text-slate-500 text-sm font-medium"> / <span id="txt-target-lembar">230</span> Lembar Saham</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-lg font-bold text-slate-700" id="txt-persentase">0%</span>
+                        <p class="text-xs text-slate-400">Tercapai</p>
+                    </div>
+                </div>
+                
+                <div class="w-full bg-slate-100 rounded-full h-5 overflow-hidden p-1 border border-slate-200/60">
+                    <div id="progress-fill" class="bg-gradient-to-r from-emerald-500 to-teal-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-100 text-sm">
+                <div class="bg-slate-50 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <p class="text-slate-500 font-medium">Nilai Per 1 Saham</p>
+                        <p class="text-lg font-bold text-slate-800">Rp 50.000</p>
+                    </div>
+                    <i class="fa-solid fa-hand-holding-dollar text-2xl text-emerald-500/70 bg-white p-3 rounded-lg shadow-sm"></i>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <p class="text-slate-500 font-medium">Total Dana Terkumpul</p>
+                        <p class="text-lg font-bold text-emerald-700" id="txt-total-dana">Rp 0</p>
+                    </div>
+                    <i class="fa-solid fa-vault text-2xl text-teal-500/70 bg-white p-3 rounded-lg shadow-sm"></i>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-1 space-y-6">
+                <section class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex flex-col justify-between h-full">
+                    <div>
+                        <h2 class="text-base font-bold text-slate-900 mb-3 flex items-center gap-2 px-2">
+                            <i class="fa-solid fa-images text-emerald-600"></i> Galeri
+                        </h2>
+                        
+                        <div class="relative rounded-xl overflow-hidden shadow-inner border border-slate-100 group">
+                            <img id="gallery-img" src="1001870723.png" alt="Galeri Masjid" class="w-full h-64 object-cover object-top transition duration-500">
+                            
+                            <button onclick="prevSlide()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 text-white w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-black/80">
+                                <i class="fa-solid fa-chevron-left text-sm"></i>
+                            </button>
+                            <button onclick="nextSlide()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 text-white w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-black/80">
+                                <i class="fa-solid fa-chevron-right text-sm"></i>
+                            </button>
+                            
+                            <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5" id="gallery-indicators">
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-xs text-emerald-800 space-y-2">
+                        <p class="font-bold flex items-center gap-1">
+                            <i class="fa-solid fa-university"></i> Rekening Transfer (BSI):
+                        </p>
+                        <p class="text-base font-mono font-bold tracking-wider text-slate-900">7183 882 729</p>
+                        <p class="text-[11px] text-slate-600">A.N. M. EKO BUDIONO</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="lg:col-span-1 space-y-6">
+                <section class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 h-full flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-solar-panel text-emerald-600"></i> Rencana & Target
+                        </h2>
+                        <p class="text-xs text-slate-500 mb-6">Pengadaan Listrik Tenaga Surya untuk kemandirian energi ibadah.</p>
+
+                        <div class="space-y-4">
+                            <div class="p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-sm shrink-0">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                </div>
+                                <span class="font-semibold text-slate-700 text-xs md:text-sm">Untuk Penerangan Masjid</span>
+                            </div>
+                            <div class="p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm shrink-0">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </div>
+                                <span class="font-semibold text-slate-700 text-xs md:text-sm">Untuk Sound Speaker TOA</span>
+                            </div>
+                            <div class="p-3 rounded-xl border border-slate-100 bg-slate-50/50 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center text-sm shrink-0">
+                                    <i class="fa-solid fa-faucet-drip"></i>
+                                </div>
+                                <span class="font-semibold text-slate-700 text-xs md:text-sm">Untuk Pompa Air Wudhu</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-100">
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Target Spesifikasi Alat:</h3>
+                            <ul class="space-y-1.5 text-xs text-slate-600 font-medium">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500 text-[10px]"></i> Panel Surya 200wp</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500 text-[10px]"></i> Battery 24v 100ah</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500 text-[10px]"></i> Inverter Hybrid 1000va</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="lg:col-span-1">
+                <section class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 h-full flex flex-col">
+                    <div class="mb-4">
+                        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-heart text-rose-500"></i> Riwayat Donasi
+                        </h2>
+                        <p class="text-xs text-slate-500 mt-1">Daftar para pencari investasi akhirat.</p>
+                    </div>
+
+                    <div class="overflow-y-auto max-h-[380px] flex-1 pr-1" id="container-donatur">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="border-b border-slate-100 text-slate-400 uppercase font-semibold">
+                                    <th class="py-2">Nama</th>
+                                    <th class="py-2 text-center">Saham</th>
+                                    <th class="py-2 text-right">Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabel-donatur" class="text-slate-700 divide-y divide-slate-50">
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <section class="bg-emerald-900 text-white rounded-2xl p-6 md:p-10 shadow-lg relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            
+            <div class="relative z-10 flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2 space-y-4">
+                    <span class="bg-emerald-700 text-emerald-100 text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded-full">Konfirmasi Otomatis</span>
+                    <h2 class="text-2xl md:text-3xl font-bold mt-2">Niatkan Berdonasi?</h2>
+                    <p class="text-emerald-100 text-sm leading-relaxed">
+                        Silakan isi formulir di samping. Sistem akan secara otomatis menghitung total nominal transfer dan membuka obrolan WhatsApp kepada admin kami dengan rincian rekening tujuan.
+                    </p>
+                    <div class="hidden md:flex items-center gap-3 mt-6 text-emerald-200">
+                        <i class="fa-brands fa-whatsapp text-4xl"></i>
+                        <span class="text-sm font-medium">Terhubung langsung dengan <br>Admin via WhatsApp</span>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 bg-white rounded-xl p-5 md:p-6 text-slate-800 shadow-inner">
+                    <form id="form-donasi" onsubmit="kirimWhatsApp(event)" class="space-y-4">
+                        <div>
+                            <label for="wa-nama" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1">Nama / Hamba Allah</label>
+                            <input type="text" id="wa-nama" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition" placeholder="Masukkan nama Anda">
+                        </div>
+                        <div>
+                            <label for="wa-alamat" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1">Domisili / Alamat</label>
+                            <input type="text" id="wa-alamat" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition" placeholder="Masukkan kota/alamat Anda">
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-1/2">
+                                <label for="wa-saham" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1">Jml. Saham</label>
+                                <input type="number" id="wa-saham" min="1" required oninput="hitungTotalDinamic()" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition" placeholder="Cth: 2">
+                            </div>
+                            <div class="w-1/2 bg-slate-100 rounded-lg p-3 flex flex-col justify-center border border-slate-200">
+                                <span class="text-[10px] text-slate-500 font-bold uppercase">Total Nominal</span>
+                                <span id="wa-total-tampil" class="text-lg font-black text-emerald-600">Rp 0</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg shadow-md transition-all flex items-center justify-center gap-2 mt-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Konfirmasi via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-xs text-slate-400 border-t border-slate-200/60 bg-white">
+        <p>© 2026 Investasi Akhirat. Seluruh dana yang terkumpul disalurkan 100% ke Masjid Nurul Qolbi.</p>
+    </footer>
+
+    <script>
+        const TARGET_SAHAM = 230;
+        const HARGA_PER_SAHAM = 50000;
+        
+        // --- UBAH NOMOR WA INI DENGAN NOMOR ADMIN (awali dengan 62 tanpa angka 0) ---
+        const NOMOR_WA_ADMIN = "6282137372400"; 
+
+        const daftarDonatur = [
+            { nama: "Audi-Tarahan", lembar: 4, tanggal: "19 Mei 2026" },
+            { nama: "Eky-BSI", lembar: 6, tanggal: "20 Mei 2026" },
+           
+        ];
+
+        // --- SISTEM GALERI SLIDESHOW ---
+        // Anda bisa menambahkan nama file foto lainnya ke dalam kurung siku di bawah ini
+        const fotoGaleri = ["1001870723.png", "1001870701.jpg"]; 
+        let indeksFoto = 0;
+
+        function inisialisasiGaleri() {
+            const containerIndikator = document.getElementById('gallery-indicators');
+            containerIndikator.innerHTML = '';
+            
+            // Buat titik indikator sesuai jumlah foto
+            fotoGaleri.forEach((_, i) => {
+                const titik = document.createElement('div');
+                titik.className = i === 0 ? "w-2 h-2 rounded-full bg-white transition-all shadow-md" : "w-2 h-2 rounded-full bg-white/40 transition-all";
+                containerIndikator.appendChild(titik);
+            });
+
+            // Putar slide otomatis setiap 5 detik (5000 milidetik)
+            setInterval(nextSlide, 5000);
+        }
+
+        function updateTampilanGaleri() {
+            document.getElementById('gallery-img').src = fotoGaleri[indeksFoto];
+            const titik = document.getElementById('gallery-indicators').children;
+            for(let i=0; i<titik.length; i++) {
+                titik[i].className = i === indeksFoto 
+                    ? "w-2 h-2 rounded-full bg-white transition-all shadow-md" 
+                    : "w-2 h-2 rounded-full bg-white/40 transition-all";
+            }
+        }
+
+        function nextSlide() {
+            indeksFoto = (indeksFoto + 1) % fotoGaleri.length;
+            updateTampilanGaleri();
+        }
+
+        function prevSlide() {
+            indeksFoto = (indeksFoto - 1 + fotoGaleri.length) % fotoGaleri.length;
+            updateTampilanGaleri();
+        }
+
+        // --- SISTEM LOGIKA DONASI & WA ---
+        function renderDanHitung() {
+            let totalTerkumpulLembar = 0;
+            const tbody = document.getElementById('tabel-donatur');
+            tbody.innerHTML = "";
+
+            daftarDonatur.forEach(donatur => {
+                totalTerkumpulLembar += donatur.lembar;
+                const totalNominal = donatur.lembar * HARGA_PER_SAHAM;
+                const formatNominal = new Intl.NumberFormat('id-ID').format(totalNominal);
+
+                const row = `
+                    <tr class="hover:bg-slate-50/80 transition">
+                        <td class="py-3 font-medium">
+                            <span class="block text-slate-900">${donatur.nama}</span>
+                            <span class="text-[10px] text-slate-400">${donatur.tanggal}</span>
+                        </td>
+                        <td class="py-3 text-center font-bold text-slate-600">${donatur.lembar} Lb</td>
+                        <td class="py-3 text-right font-semibold text-emerald-600">Rp ${formatNominal}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+
+            const totalDana = totalTerkumpulLembar * HARGA_PER_SAHAM;
+            const persentase = (totalTerkumpulLembar / TARGET_SAHAM) * 100;
+
+            document.getElementById('txt-terkumpul-lembar').innerText = totalTerkumpulLembar;
+            document.getElementById('txt-target-lembar').innerText = TARGET_SAHAM;
+            document.getElementById('txt-persentase').innerText = persentase.toFixed(1) + '%';
+            
+            document.getElementById('txt-total-dana').innerText = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                maximumFractionDigits: 0
+            }).format(totalDana);
+
+            setTimeout(() => {
+                document.getElementById('progress-fill').style.width = persentase + '%';
+            }, 300);
+        }
+
+        function hitungTotalDinamic() {
+            const inputSaham = document.getElementById('wa-saham').value;
+            const total = inputSaham * HARGA_PER_SAHAM;
+            
+            if (inputSaham > 0) {
+                document.getElementById('wa-total-tampil').innerText = new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    maximumFractionDigits: 0
+                }).format(total);
+            } else {
+                document.getElementById('wa-total-tampil').innerText = "Rp 0";
+            }
+        }
+
+        function kirimWhatsApp(event) {
+            event.preventDefault(); 
+            
+            const nama = document.getElementById('wa-nama').value;
+            const alamat = document.getElementById('wa-alamat').value;
+            const saham = document.getElementById('wa-saham').value;
+
+            if(saham <= 0) {
+                alert("Jumlah saham minimal 1 lembar.");
+                return;
+            }
+
+            const totalNominal = saham * HARGA_PER_SAHAM;
+            const formatNominal = new Intl.NumberFormat('id-ID').format(totalNominal);
+
+            let pesanWA = `Bismillah, saya ingin konfirmasi niat donasi untuk *Program Investasi Akhirat Masjid Nurul Qolbi*.%0A%0A`;
+            pesanWA += `*Nama:* ${nama}%0A`;
+            pesanWA += `*Alamat:* ${alamat}%0A`;
+            pesanWA += `*Jumlah Saham:* ${saham} Lembar%0A`;
+            pesanWA += `*Total Transfer:* Rp ${formatNominal}%0A%0A`;
+            pesanWA += `Mohon konfirmasinya untuk saya transfer ke rekening:%0A`;
+            pesanWA += `*BSI: 7183 882 729 (A.N. M. EKO BUDIONO)*`;
+
+            window.open(`https://wa.me/${NOMOR_WA_ADMIN}?text=${pesanWA}`, '_blank');
+        }
+
+        // Jalankan kedua fungsi (Galeri & Hitungan) saat web dibuka
+        window.onload = function() {
+            inisialisasiGaleri();
+            renderDanHitung();
+        };
+    </script>
+</body>
+</html>
